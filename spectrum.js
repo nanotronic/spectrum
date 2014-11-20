@@ -947,13 +947,14 @@
     */
     function getOffset(picker, input) {
         var extraY = 0;
-        var dpWidth = picker.outerWidth();
-        var dpHeight = picker.outerHeight();
-        var inputHeight = input.outerHeight();
+        //we are using zepto, therefor using height() and width()
+        var dpWidth = picker.width();//outerWidth();
+        var dpHeight = picker.height();//outerHeight();
+        var inputHeight = input.height();//outerHeight();
         var doc = picker[0].ownerDocument;
         var docElem = doc.documentElement;
-        var viewWidth = docElem.clientWidth + $(doc).scrollLeft();
-        var viewHeight = docElem.clientHeight + $(doc).scrollTop();
+        var viewWidth = docElem.clientWidth + $(window).scrollLeft();
+        var viewHeight = docElem.clientHeight + $(window).scrollTop();
         var offset = input.offset();
         offset.top += inputHeight;
 
